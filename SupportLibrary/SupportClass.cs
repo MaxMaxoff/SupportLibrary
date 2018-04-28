@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/// <summary>
+/// Библиотека необходимых методов для домашних работ
+/// Методы добавляются по мере необходимости
+/// </summary>
 namespace SupportLibrary
 {
     public class SupportMethods
