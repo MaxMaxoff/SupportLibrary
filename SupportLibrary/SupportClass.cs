@@ -128,6 +128,36 @@ namespace SupportLibrary
             Console.WriteLine("Authentication filed!");
             return false;
         }
+
+        /// <summary>
+        /// Get Fraction method
+        /// </summary>
+        /// <param name="numerator">outgoing integer</param>
+        /// <param name="denominator">outgoing integer</param>
+        /// <param name="message">string incoming from programm</param>
+        public static void RequestFraction(out int numerator, out int denominator, string message)
+        {
+            denominator = 0;
+            numerator = 0;
+            bool denominatorBool = false;
+            bool numeratorBool = false;
+
+            do
+            {
+                Console.WriteLine(message);
+                string str = Console.ReadLine();
+                int indexOf = str.IndexOf("/");
+
+                if (str.Length != 0 && indexOf != -1)
+                {
+                    string substring = str.Substring(0, indexOf);
+                    numeratorBool = Int32.TryParse(substring, out numerator);
+
+                    substring = str.Substring(indexOf + 1, str.Length - indexOf - 1);
+                    denominatorBool = Int32.TryParse(substring, out denominator);
+                }
+            } while (numerator == 0 || denominator == 0 || !numeratorBool || !denominatorBool);
+        }
             
         public static void Pause()
         {
