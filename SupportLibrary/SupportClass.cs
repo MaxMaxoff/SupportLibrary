@@ -125,7 +125,6 @@ namespace SupportLibrary
         {
             int count = 0;
 
-            Console.ForegroundColor = ConsoleColor.Red;
             do
             {
                 count++;
@@ -140,9 +139,6 @@ namespace SupportLibrary
                 Console.WriteLine($"{maxcount - count} attempts remaining!");
             } while (count < maxcount);
 
-            //Console.WriteLine("Authentication filed!");
-
-            Console.ForegroundColor = ConsoleColor.Green;
             return false;
         }
 
