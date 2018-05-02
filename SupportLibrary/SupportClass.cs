@@ -23,10 +23,12 @@ namespace SupportLibrary
         {
             int number;
 
+            Console.ForegroundColor = ConsoleColor.Red;
             do
             { Console.WriteLine(message); }
             while (!Int32.TryParse(Console.ReadLine(), out number));
 
+            Console.ForegroundColor = ConsoleColor.Green;
             return number;
         }
 
@@ -42,6 +44,7 @@ namespace SupportLibrary
             int number = 0;
             bool iserror = false;
 
+            Console.ForegroundColor = ConsoleColor.Red;
             do
             {
                 Console.WriteLine(message);
@@ -58,6 +61,7 @@ namespace SupportLibrary
             }
             while (iserror);
 
+            Console.ForegroundColor = ConsoleColor.Green;
             return number;
         }
 
@@ -71,10 +75,12 @@ namespace SupportLibrary
         {
             double number;
 
+            Console.ForegroundColor = ConsoleColor.Red;
             do
             { Console.WriteLine(message); }
             while (!Double.TryParse(Console.ReadLine(), out number));
 
+            Console.ForegroundColor = ConsoleColor.Green;
             return number;
         }
 
@@ -86,9 +92,12 @@ namespace SupportLibrary
         public static string RequestString(string message)
         {
             string str;
+
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(message);
             str = Console.ReadLine();
 
+            Console.ForegroundColor = ConsoleColor.Green;
             return str;
         }
 
@@ -115,13 +124,15 @@ namespace SupportLibrary
         public static bool RequestUsernamePassword(string username, string password, int maxcount)
         {
             int count = 0;
-            
+
+            Console.ForegroundColor = ConsoleColor.Red;
             do
             {
                 count++;
 
-                if (username == RequestString("Please type your Username: ") || password == RequestString("Please type your password: "))
+                if (username == RequestString("Please type your Username: ") && password == RequestString("Please type your password: "))
                 {
+                    Console.ForegroundColor = ConsoleColor.Green;
                     return true;
                 }
                                 
@@ -129,7 +140,9 @@ namespace SupportLibrary
                 Console.WriteLine($"{maxcount - count} attempts remaining!");
             } while (count < maxcount);
 
-            Console.WriteLine("Authentication filed!");
+            //Console.WriteLine("Authentication filed!");
+
+            Console.ForegroundColor = ConsoleColor.Green;
             return false;
         }
 
@@ -146,6 +159,7 @@ namespace SupportLibrary
             bool denominatorBool = false;
             bool numeratorBool = false;
 
+            Console.ForegroundColor = ConsoleColor.Red;
             do
             {
                 Console.WriteLine(message);
@@ -161,6 +175,8 @@ namespace SupportLibrary
                     denominatorBool = Int32.TryParse(substring, out denominator);
                 }
             } while (numerator == 0 || denominator == 0 || !numeratorBool || !denominatorBool);
+
+            Console.ForegroundColor = ConsoleColor.Green;
         }
             
         public static void Pause()
