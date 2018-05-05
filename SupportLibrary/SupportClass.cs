@@ -88,7 +88,7 @@ namespace SupportLibrary
         /// Return string
         /// </summary>
         /// <param name="message">string incoming from programm</param>
-        /// <returns></returns>
+        /// <returns>string str</returns>
         public static string RequestString(string message)
         {
             string str;
@@ -99,6 +99,33 @@ namespace SupportLibrary
 
             Console.ForegroundColor = ConsoleColor.Green;
             return str;
+        }
+        
+        /// <summary>
+        /// Return char
+        /// </summary>
+        /// <param name="message">string incoming from programm</param>
+        /// <returns>char ch</returns>
+        public static char RequestChar(string message)
+        {
+            char ch;
+            string str;
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            do
+            {
+                Console.WriteLine(message);
+                str = Console.ReadLine();
+                ch = str[0];
+            }
+            //uncomment next string if we are talking about symbols only not letters or digits
+            //while (str.Length > 1 || !char.IsSymbol(ch));
+
+            //comment this string if we are talking about symbols only not letters or digits
+            while (str.Length > 1 || !char.IsLetterOrDigit(ch));
+            
+            Console.ForegroundColor = ConsoleColor.Green;
+            return ch;
         }
 
         /// <summary>
