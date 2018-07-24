@@ -218,5 +218,30 @@ namespace SupportLibrary
             Console.SetCursorPosition(x, y);
             Console.WriteLine(message);
         }
+
+        public static void Print(string message, int x, int y, string color)
+        {
+            switch (color)
+            {
+                case "red":
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    break;
+                case "yellow":
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    break;
+                case "green":
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    break;
+                case "blue":
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    break;
+                default:
+                    break;
+            }
+            Console.SetCursorPosition(x, y);
+            Console.WriteLine(message);
+            Console.ForegroundColor = ConsoleColor.Green;
+        }
+
     }
 }
